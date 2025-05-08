@@ -38,6 +38,16 @@ Follow these steps to get a local copy up and running.
 - Composer
 - MySQL or SQLite
 - Node.js & npm (for Laravel Mix if used)
+###Screenshots
+### Screenshot 1
+![Screenshot 1](screenshot/Screenshot_1.png)
+
+### Screenshot 2
+![Screenshot 2](screenshot/Screenshot_2.png)
+### Screenshot 3
+![Screenshot 3](screenshot/Screenshot_3.png)
+### Screenshot 4
+![Screenshot 3](screenshot/Screenshot_4.png)
 
 ### Installation
 
@@ -125,13 +135,7 @@ In order to ensure that the Laravel community is welcoming to all, please review
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-### Screenshot 1
-![Screenshot 1](screenshot/Screenshot_1.png)
 
-### Screenshot 2
-![Screenshot 2](screenshot/Screenshot_2.png)
-### Screenshot 3
-![Screenshot 3](screenshot/Screenshot_3.png)
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
