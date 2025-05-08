@@ -6,10 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Todo List</title>
     
-    <!-- Bootstrap CSS -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Font Awesome for icons -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <style>
@@ -93,8 +93,7 @@
         </div>
     </div>
     
-    <!-- Delete Confirmation Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -112,20 +111,20 @@
         </div>
     </div>
 
-    <!-- jQuery and Bootstrap JS -->
+   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
         $(document).ready(function() {
-            // Setup CSRF token for AJAX requests
+          
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             
-            // Update task counter
+            
             function updateTaskCount() {
                 let count = 0;
                 if (!$('#showAllTasks').is(':checked')) {
@@ -136,10 +135,10 @@
                 $('#task-count').text(count);
             }
             
-            // Initialize task count
+           
             updateTaskCount();
             
-            // Add new task
+            
             $('#addTaskBtn').click(function() {
                 const title = $('#taskInput').val().trim();
                 
@@ -154,11 +153,11 @@
                         title: title
                     },
                     success: function(response) {
-                        // Clear the input and error message
+                      
                         $('#taskInput').val('');
                         $('#errorMessage').hide();
                         
-                        // Create new task element
+                      
                         const newTask = `
                             <div class="row task-item" data-id="${response.task.id}">
                                 <div class="col">
@@ -181,7 +180,6 @@
                             </div>
                         `;
                         
-                        // Add task to the list
                         $('#taskList').prepend(newTask);
                         updateTaskCount();
                     },
@@ -192,8 +190,7 @@
                     }
                 });
             });
-            
-            // Enter key to add task
+          
             $('#taskInput').keypress(function(e) {
                 if (e.which === 13) { // Enter key
                     $('#addTaskBtn').click();
@@ -201,7 +198,7 @@
                 }
             });
             
-            // Toggle task completion
+            
             $(document).on('change', '.task-checkbox', function() {
                 const taskItem = $(this).closest('.task-item');
                 const taskId = taskItem.data('id');
@@ -218,7 +215,7 @@
                             taskLabel.removeClass('completed-task');
                         }
                         
-                        // If "Show All Tasks" is not checked, hide completed tasks
+                    
                         if (!$('#showAllTasks').is(':checked') && response.completed) {
                             taskItem.hide();
                             updateTaskCount();
@@ -227,7 +224,7 @@
                 });
             });
             
-            // Delete task (with confirmation)
+        
             let taskToDelete = null;
             
             $(document).on('click', '.delete-task', function() {
@@ -251,7 +248,6 @@
                 }
             });
             
-            // Show/Hide completed tasks
             $('#showAllTasks').change(function() {
                 if ($(this).is(':checked')) {
                     // Show all tasks
